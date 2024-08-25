@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="LaLuccia.css">
+    <title>Profile Card</title>
+</head>
+<body>
+    <div class="card">
+        <div class="card-header">
+            <img src="LaLuccia.jpeg" alt="La Luccia's Logo">
+        </div>
+        <hr class="divider">
+        <div class="card-body">
+            <h2>     La Luccia</h2>
+            <ul class="contact-info">
+                <li>
+
+                    <a href="https://www.instagram.com/laluccialb?igsh=NnZtMjAzM2Vod3F2" target="_blank">
+                        <img src="instagram_icon_dark.png" alt="Instagram">
+                        Instagram
+                    </a>
+                </li>
+                <li>
+                    
+                </li>
+                <li>
+                    <a href="tel:+96170479923">
+                        <img src="phone_icon_dark.png" alt="Phone Number">
+                        Phone
+                    </a>
+
+                </li>
+                <li>
+                    <a href="https://maps.app.goo.gl/pzgujwbk99kz8LtC7" target="_blank">
+                        <img src="maps_icon_dark.png" alt="Location">
+                        Maps
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <button class="save-contact">SAVE CONTACT</button> 
+    </div>
+
+    <script>
+        function downloadVCard() {
+            const vCardData = `
+BEGIN:VCARD
+VERSION:3.0
+FN:La Luccia
+TEL;TYPE=WORK,VOICE:+96170479923
+URL:https://maps.app.goo.gl/pzgujwbk99kz8LtC7
+URL:https://www.instagram.com/laluccialb?
+END:VCARD
+`;
+            const blob = new Blob([vCardData], { type: 'text/vcard' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'LaLuccia.vcf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
+</html>
